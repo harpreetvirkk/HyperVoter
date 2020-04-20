@@ -1,0 +1,26 @@
+[
+    {
+        "ownerId" : "101",
+        "isUsed" : "False"
+    },
+    {
+        "ownerId" : "102",
+        "isUsed" : "False"
+    },
+    {
+        "ownerId" : "103",
+        "isUsed" : "False"
+    },
+    {
+        "ownerId" : "104",
+        "isUsed" : "False"
+    },
+    {
+        "ownerId" : "105",
+        "isUsed" : "False"
+    },
+    {
+        "ownerId" : "106",
+        "isUsed" : "False"
+    }
+]
