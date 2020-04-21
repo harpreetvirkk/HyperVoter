@@ -9,6 +9,8 @@ set -e
 
 # don't rewrite paths for Windows Git Bash users
 export MSYS_NO_PATHCONV=1
+starttime=$(date +%s)
+CC_SRC_LANGUAGE=${1:-"javascript"}
 CC_RUNTIME_LANGUAGE=node # chaincode runtime language is node.js
 CC_SRC_PATH=/opt/gopath/src/github.com/hypervoter/javascript
 
@@ -28,5 +30,6 @@ docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/g
 sleep 10
 docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n hypervoter -c '{"function":"initLedger","Args":[]}'
 
-# cd /home/r/PycharmProjects/fabchat_flask_server
-# node /home/r/fabric-samples/fabchat/javascript/enrollAdmin.js
+cat <<EOF
+Total setup execution time : $(($(date +%s) - starttime)) secs ...
+EOF
