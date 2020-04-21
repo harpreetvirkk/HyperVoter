@@ -50,14 +50,14 @@ async function main() {
 
         // Register the user, enroll the user, and import the new identity into the wallet.
         const secret = await ca.register({
-            affiliation: 'election-commision.department1',
+            affiliation: 'org1.department1',
             enrollmentID: userId,
             role: 'client'
         }, adminIdentity);
         const enrollment = await ca.enroll({
             enrollmentID: userId, 
             enrollmentSecret: secret});
-        const userIdentity = X509WalletMixin.createIdentity('EC-MSP', enrollment.certificate, enrollment.key.toBytes());
+        const userIdentity = X509WalletMixin.createIdentity('Org1MSP', enrollment.certificate, enrollment.key.toBytes());
         wallet.import(userId, userIdentity);
         console.log(`Successfully registered and enrolled voter ${userId} and imported it into the wallet`);
 
