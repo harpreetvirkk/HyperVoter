@@ -6,7 +6,7 @@
 
 const {Contract} = require('fabric-contract-api');
 
-//const ClientIdentity = require('fabric-shim').ClientIdentity; - IS THIS NEEDEED??
+const ClientIdentity = require('fabric-shim').ClientIdentity; //IS THIS NEEDEED??
 
 //Global Variables here:
 let voteID = -1; // msgID of last msg that was posted
