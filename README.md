@@ -7,6 +7,7 @@ Merge with fabric-sample.
 
 Fabric sample should be curled into GOPATH initially.
 
-chmod u+r+x ./startHyperVoter.sh
+If ./sh files have permission error:
 
+chmod u+r+x ./startHyperVoter.sh
 chmod u+r+x ./teardownHyperVoter.sh
