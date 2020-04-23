@@ -18,7 +18,7 @@ HyperVoter is a distributed E-Voting application implemented on Hyperledger Fabr
 
 6. Election results should be publicly visible to the entire network and vote transactions should be openly available for verification to ensure transparency (Voter’s identity will still be anonymous)
 
-HyperVoter allows the voters to vote after the Election Commision verifies their identity, and generates a voterId and a voterPin that is sent out to them via email. The EC also issues one voteObjecte for each voter after verifying their registration. The voters can register themselves on the application by using their voterId and voterPin, and then cast their vote by transferring the ownership of their voteObject to their preffered candidate, which is recorded as transactions on the blockchain. Given the immutable property of blockchain, tampering with the votes database is not possible. 
+HyperVoter allows the voters to vote after the Election Commision verifies their identity and generates a voterId and a voterPin that is sent out to them via email. The EC also issues one voteObjecte for each voter after verifying their registration. The voters can register themselves on the application by using their voterId and voterPin, and then cast their vote by transferring the ownership of their voteObject to their preffered candidate, which is recorded as transactions on the blockchain. Given the immutable property of blockchain, tampering with the votes database is not possible. 
 
 Votes do not contain the voterId of the voters after they have been cast, ensuring the privacy of the voters. Votes can be queried through their voteId, or all at once through query transactions.
 
