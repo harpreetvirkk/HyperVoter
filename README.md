@@ -1,9 +1,18 @@
-# Distributed-Blockchain-based-E-Voting-system-implemented
-Distributed Blockchain based E-Voting system implemented on Hyperledger Fabric
+# HyperVoter E-Voting Platform
+
+#### Contributers: Harpreet Virk, Vir Jhangiani, Varsheel Deliwala
+
+## Introduction:
+
+HyperVoter is a distributed E-Voting application implemented on Hyperledger Fabric.
+
+
 
 Usage:
 
-Merge with fabric-sample.
+1. Merge with fabric-sample.
+
+2. cd fabric-sample/hypervoter
 
 Fabric sample should be curled into GOPATH initially.
 
