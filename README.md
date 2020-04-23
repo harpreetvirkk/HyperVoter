@@ -89,6 +89,7 @@ $  node registerUser.js EC <EC_PIN>
 $  node registerUser.js EC 555000555
 ```
 EC_PIN is preset in voters.json file, and can be set by the EC before the elections start. Only EC user can create VoteObjects.
+
 5. Register and enroll three voters:
 ```
 $  node registerUser.js <voterId> <voterPin>
@@ -97,6 +98,7 @@ $  node registerUser.js 202 002
 $  node registerUser.js 303 003
 ```
 VoterId's and voterPin's are preset in voters.json file, and are set by the EC after they verify individual voters before the elections start. Voters can only send VoteObjects, not create them.
+
 6. Query all votes using a voters wallet:
 ```
 $  node query.js -1 <voterId>
