@@ -41,7 +41,7 @@ class HyperVoter extends Contract {
                 await iterator.close();
                 console.log(`voters: ${voters}`);
                 console.log(`numVoters: ${voters.length}`);
-                console.log(`lastVoteID: ${voteID}`);
+                console.log(`lastVoteID: ${voteId}`);
                 break;
             }
         }
@@ -74,7 +74,7 @@ class HyperVoter extends Contract {
             voters.push(voterId);
         }
 
-        await ctx.stub.putState(voteID.toString(), Buffer.from(JSON.stringify(vote)));
+        await ctx.stub.putState(voteId.toString(), Buffer.from(JSON.stringify(vote)));
         console.info('============== END : createVoteObj ============');
     }
 
@@ -119,7 +119,7 @@ class HyperVoter extends Contract {
         // get the vote from chaincode state
         const voteAsBytes = await ctx.stub.getState(voteId); 
         if (!voteAsBytes || voteAsBytes.length === 0) {
-            throw new Error(`${voteID} associated with your account does not exist, you could have already voted!`);
+            throw new Error(`${voteId} associated with your account does not exist, you could have already voted!`);
         }
         let vote = JSON.parse(voteAsBytes.toString());
 
@@ -129,21 +129,21 @@ class HyperVoter extends Contract {
         } else {
             throw new Error('You have already voted! You cannot vote again.');
         }
-        console.log(`voteID ${voteId} casted successfully!`);
+        console.log(`voteId ${voteId} casted successfully!`);
 
-        await ctx.stub.putState(voteID, Buffer.from(JSON.stringify(vote)));
+        await ctx.stub.putState(voteId, Buffer.from(JSON.stringify(vote)));
 
         console.info('============== END : sendVoteObj ============');
     }   
 
     async queryVote(ctx, voteId){
         console.info('============= START : queryVote ===========');
-        console.log(`voteID: ${voteId}`);
+        console.log(`voteId: ${voteId}`);
 
         // get the vote from chaincode state
         const voteAsBytes = await ctx.stub.getState(voteId); 
         if (!voteAsBytes || voteAsBytes.length === 0) {
-            throw new Error(`${voteID} does not exist!`);
+            throw new Error(`${voteId} does not exist!`);
         }
         let vote = JSON.parse(voteAsBytes.toString());
         console.log(vote);
