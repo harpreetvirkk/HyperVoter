@@ -18,7 +18,7 @@ let voter, pin_val;
 
 process.argv.forEach(function (val, index, array) {
     voter = array[2];
-    pin_val = array[3]
+    pin_val = array[3];
 });
 
 async function main() {
@@ -30,7 +30,7 @@ async function main() {
                 if (voters_list[i].pin == pin_val){
                     console.log("Identity Verified!\n");
                 } else {
-                    console.log("Identity Not Verified for the voter ${voter}. Incorrect Pin!\n");
+                    console.log('Identity Not Verified for the voter. Incorrect Pin!');
                     return;
                 }
             }
