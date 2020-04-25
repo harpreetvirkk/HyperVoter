@@ -16,7 +16,7 @@ let pin_val;
 process.argv.forEach(function (val, index, array) {
     pin_val = array[2];
 });
-EC_ID = 0;
+let EC_ID = 0;
 async function main() {
     try {
         if (pin_val != 54321){
