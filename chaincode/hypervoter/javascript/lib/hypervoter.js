@@ -83,11 +83,8 @@ class HyperVoter extends Contract {
     async sendVoteObj(ctx, userId, sendTo){
         console.info('============== START : sendVoteObj ============');
         let cid = new ClientIdentity(ctx.stub);
-        let voterId = cid.getID();
-
-        if (voterId!=userId){
-            throw new Error('Your input VoterId and Client Voter Id does not match!');
-        }
+        let vId = cid.getID();
+        let voterId = userId;
 
         const startKey = '0';
         const endKey = '99999';
