@@ -55,8 +55,8 @@ An asset (key, value) is a (voteID, {ownerId, hasVoted}) pair, with a unique vot
 
 ```
 $  cd fabric-samples/hypervoter
-$  ./teardownHyperVoter
-$  ./startHyperVoter
+$  ./teardownHyperVoter.sh
+$  ./startHyperVoter.sh
 ```
 
 If ./sh files have permission error (mac OS):
@@ -86,6 +86,9 @@ $  node enrollAdmin.js
 4. Register and enroll EC:
 ```
 $  node registerUser.js EC <EC_PIN>
+```
+Example:
+```
 $  node registerUser.js EC 555000555
 ```
 EC_PIN is preset in voters.json file, and can be set by the EC before the elections start. Only EC user can create VoteObjects.
@@ -93,6 +96,9 @@ EC_PIN is preset in voters.json file, and can be set by the EC before the electi
 5. Register and enroll three voters:
 ```
 $  node registerUser.js <voterId> <voterPin>
+```
+Example:
+```
 $  node registerUser.js 101 001
 $  node registerUser.js 202 002
 $  node registerUser.js 303 003
