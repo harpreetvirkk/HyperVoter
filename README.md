@@ -85,17 +85,17 @@ $  node enrollAdmin.js
 ```
 4. Register and enroll EC:
 ```
-$  node registerUser.js EC <EC_PIN>
+$  node registerEC.js <EC_PIN>
 ```
 Example:
 ```
-$  node registerUser.js EC 555000555
+$  node registerEC.js 54321
 ```
-EC_PIN is preset in voters.json file, and can be set by the EC before the elections start. Only EC user can create VoteObjects.
+Default EC_PIN is 54321. EC_PIN is preset in voters.json file, and can be set by the EC before the elections start. Only EC user can create VoteObjects.
 
 5. Register and enroll three voters:
 ```
-$  node registerUser.js <voterId> <voterPin>
+$  node registerVoter.js <voterId> <voterPin>
 ```
 Example:
 ```
