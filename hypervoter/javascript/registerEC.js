@@ -11,12 +11,13 @@ const path = require('path');
 const ccpPath = path.resolve(__dirname, '..', '..', 'basic-network', 'connection.json');
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
 const ccp = JSON.parse(ccpJSON);
-let pin_val;
+let pin_val, EC_ID;
 
 process.argv.forEach(function (val, index, array) {
     pin_val = array[2];
+    EC_ID = 1;
 });
-let EC_ID = 0;
+
 async function main() {
     try {
         if (pin_val != 54321){
@@ -62,7 +63,7 @@ async function main() {
         const enrollment = await ca.enroll({enrollmentID: EC_ID, enrollmentSecret: secret});
         const userIdentity = X509WalletMixin.createIdentity('Org1MSP', enrollment.certificate, enrollment.key.toBytes());
         wallet.import(EC_ID, userIdentity);
-        console.log(`Successfully registered and enrolled EC with enrollment ID 0 and imported it into the wallet`);
+        console.log(`Successfully registered and enrolled EC with enrollment ID 1 and imported it into the wallet`);
 
     } catch (error) {
         console.error(`Failed to register EC: ${error}`);

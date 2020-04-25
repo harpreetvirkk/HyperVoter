@@ -24,6 +24,11 @@ process.argv.forEach(function (val, index, array) {
 async function main() {
     try {
 
+        if (voter == 1){
+            console.log('Voter ID reserved for EC, please change!');
+            return;
+        }
+
         //Voter Id and Pin Verification
         for (let i = 0; i<voters_list.length; i++){
             if (voters_list[i].voterId == voter){
