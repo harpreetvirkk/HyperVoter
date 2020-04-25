@@ -16,7 +16,7 @@ let pin_val;
 process.argv.forEach(function (val, index, array) {
     pin_val = array[2];
 });
-
+EC_ID = 0;
 async function main() {
     try {
         if (pin_val != 54321){
@@ -31,7 +31,7 @@ async function main() {
         console.log(`Wallet path: ${walletPath}`);
 
         // Check to see if we've already enrolled the EC.
-        const EC_Exists = await wallet.exists('EC');
+        const EC_Exists = await wallet.exists(EC_ID);
         if (EC_Exists) {
             console.log(`An identity for the EC already exists in the wallet`);
             return;
@@ -56,13 +56,13 @@ async function main() {
         // Register the user, enroll the user, and import the new identity into the wallet.
         const secret = await ca.register({
             affiliation: 'org1.department1',
-            enrollmentID: 1,
+            enrollmentID: EC_ID,
             role: 'client'
         }, adminIdentity);
-        const enrollment = await ca.enroll({enrollmentID: 1, enrollmentSecret: secret});
+        const enrollment = await ca.enroll({enrollmentID: EC_ID, enrollmentSecret: secret});
         const userIdentity = X509WalletMixin.createIdentity('Org1MSP', enrollment.certificate, enrollment.key.toBytes());
-        wallet.import(1, userIdentity);
-        console.log(`Successfully registered and enrolled EC with enrollment ID 1 and imported it into the wallet`);
+        wallet.import(EC_ID, userIdentity);
+        console.log(`Successfully registered and enrolled EC with enrollment ID 0 and imported it into the wallet`);
 
     } catch (error) {
         console.error(`Failed to register EC: ${error}`);
