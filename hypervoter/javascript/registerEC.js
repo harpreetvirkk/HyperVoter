@@ -15,7 +15,7 @@ let pin_val, EC_ID;
 
 process.argv.forEach(function (val, index, array) {
     pin_val = array[2];
-    EC_ID = 1;
+    EC_ID = '1';
 });
 
 async function main() {
@@ -60,6 +60,7 @@ async function main() {
             enrollmentID: EC_ID,
             role: 'client'
         }, adminIdentity);
+
         const enrollment = await ca.enroll({enrollmentID: EC_ID, enrollmentSecret: secret});
         const userIdentity = X509WalletMixin.createIdentity('Org1MSP', enrollment.certificate, enrollment.key.toBytes());
         wallet.import(EC_ID, userIdentity);
