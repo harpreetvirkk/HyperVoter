@@ -89,7 +89,7 @@ $  node registerUser.js EC <EC_PIN>
 ```
 Example:
 ```
-$  node registerUser.js EC 555000555
+$  node registerUser.js EC 54321
 ```
 EC_PIN is preset in voters.json file, and can be set by the EC before the elections start. Only EC user can create VoteObjects.
 
