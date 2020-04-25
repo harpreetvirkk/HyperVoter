@@ -68,7 +68,7 @@ async function main(){
         } else{
             for (let i = 0; i<voters_list.length; i++){
                 if (voters_list[i].voterId == userId){
-                    if (voters_list[i].pin != pin_val){
+                    if (voters_list[i].pin != userPin){
                         console.log('Identity Not Verified for the voter. Incorrect Pin!');
                         return;
                     } else {
