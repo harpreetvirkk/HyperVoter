@@ -10,7 +10,9 @@ const ClientIdentity = require('fabric-shim').ClientIdentity;
 // voteId of last voteObj that was created
 let voteId = -1;
 // list of voters
-let voters = []
+let voters = [];
+let voterId, ownerId;
+let hasVoted;
 
 class HyperVoter extends Contract {
 

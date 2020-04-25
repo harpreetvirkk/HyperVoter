@@ -53,7 +53,7 @@ async function main(){
         // Submit the specified transaction.
         // createVoteObj transaction -
         // sendVoteObj transaction -
-        if (userId == 'EC'){
+        if (userId == 1){
             if (userPin != 54321){
                 console.log('Identity Not Verified for the voter. Incorrect Pin!');
                 return
