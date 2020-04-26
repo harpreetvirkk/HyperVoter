@@ -104,7 +104,7 @@ $  node registerUser.js 102 002
 $  node registerUser.js 103 003
 ```
 VoterId's and voterPin's are preset in voters.json file, and are set by the EC after they verify individual voters before the elections start. Voters can only send VoteObjects, not create them.
-```
+
 6. Creating a new VoteObject for a voter, using EC wallet: 
 ```
 $  node invoke.js createVoteObj 1 <EC_PIN> <sendTo = new voter's voterId>  
@@ -120,3 +120,4 @@ $  node query.js -1 <voterId>
 9. Query a specific vote using a voters wallet:
 ```
 $  node query.js <voteId> <voterId>
+```
