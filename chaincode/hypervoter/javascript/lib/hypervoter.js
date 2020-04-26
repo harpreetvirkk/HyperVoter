@@ -154,7 +154,7 @@ class HyperVoter extends Contract {
         return JSON.stringify(vote);
     }
 
-    async queryAllVote(ctx, voteId){
+    async queryAllVote(ctx){
         console.info('============= START : queryAllVote ===========');
         const startKey = '0';
         const endKey = '99999';
@@ -164,11 +164,11 @@ class HyperVoter extends Contract {
         while(true){
             const res = await iterator.next();
 
-            if (res.value && res.value.value.toString('utf8')) {
+            if (res.value && res.value.value.toString()) {
                 const Key = res.value.key;
                 let vote;
                 try{
-                    vote = JSON.parse(res.value.value.toString());
+                    vote = JSON.parse(res.value.value.toString('utf8'));
                 } catch (err){
                 console.log(err);
                 vote = res.value.value.toString('utf8');

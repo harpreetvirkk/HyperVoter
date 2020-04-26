@@ -15,8 +15,8 @@ let voteId, voterId;
 
 process.argv.forEach(function (val, index, array) {
     // console.log(index + ': ' + val);
-    voterId = array[2];
-    voteId = array[3];
+    voteId = array[2];
+    voterId = array[3];
 });
 
 async function main() {
@@ -48,7 +48,7 @@ async function main() {
         // Evaluate the specified transaction.
         // queryMsg transaction - requires 1 argument, ex: ('queryMsg', 'MSG0')
         // queryAllMsgs transaction - requires no arguments, ex: ('queryAllMsgs')
-        if (voteId === "-1") {
+        if (voteId == '-1') {
             const result = await contract.evaluateTransaction('queryAllVotes');
             console.log(`TransactionTypeAll has been evaluated, result is: ${result.toString()}`);
         } else {
