@@ -165,7 +165,7 @@ class HyperVoter extends Contract {
             const res = await iterator.next();
 
             if (res.value && res.value.value.toString()) {
-                const Key = res.value.key;
+                const VoteId = res.value.key;
                 let vote;
                 try{
                     vote = JSON.parse(res.value.value.toString('utf8'));
@@ -173,7 +173,7 @@ class HyperVoter extends Contract {
                 console.log(err);
                 vote = res.value.value.toString('utf8');
                 }
-                allResults.push({Key, vote});
+                allResults.push({VoteId, vote});
             }
 
             if (res.done){
