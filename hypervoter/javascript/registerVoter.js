@@ -8,9 +8,6 @@ const {FileSystemWallet, Gateway, X509WalletMixin} = require('fabric-network');
 const fs = require('fs');
 const path = require('path');
 
-let rawdata_voters = fs.readFileSync('voters.json');
-let voters_list = JSON.parse(rawdata_voters);
-
 const ccpPath = path.resolve(__dirname, '..', '..', 'basic-network', 'connection.json');
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
 const ccp = JSON.parse(ccpJSON);
@@ -23,6 +20,8 @@ process.argv.forEach(function (val, index, array) {
 
 async function main() {
     try {
+        let rawdata_voters = fs.readFileSync('voters.json');
+        let voters_list = JSON.parse(rawdata_voters);
 
         if (voter == 1){
             console.log('Voter ID reserved for EC, please change!');
