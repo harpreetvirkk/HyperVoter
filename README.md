@@ -99,9 +99,9 @@ $  node registerVoter.js <voterId> <voterPin>
 ```
 Example:
 ```
-$  node registerUser.js 101 001
-$  node registerUser.js 102 002
-$  node registerUser.js 103 003
+$  node registerVoter.js 101 001
+$  node registerVoter.js 102 002
+$  node registerVoter.js 103 003
 ```
 VoterId's and voterPin's are preset in voters.json file, and are set by the EC after they verify individual voters before the elections start. Voters can only send VoteObjects, not create them.
 
