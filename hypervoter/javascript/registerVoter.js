@@ -27,17 +27,21 @@ async function main() {
             console.log('Voter ID reserved for EC, please change!');
             return;
         }
-
+        let flag = 0;
         //Voter Id and Pin Verification
         for (let i = 0; i<voters_list.length; i++){
             if (voters_list[i].voterId == voter){
-                if (voters_list[i].pin == pin_val){
-                    console.log("Identity Verified!\n");
+                flag = 1;
+                if (voters_list[i].pin != pin_val){
+                    throw new Error('Identity Not Verified for the voter. Incorrect Pin!');
                 } else {
-                    console.log('Identity Not Verified for the voter. Incorrect Pin!');
-                    return;
+                    console.log("Identity Verified!\n");
+                    continue;
                 }
             }
+        }
+        if (flag != 1){
+            throw new Error("You have not been pre-approved by EC to register as a voter!");
         }
 
         // Create a new file system based wallet for managing identities.
