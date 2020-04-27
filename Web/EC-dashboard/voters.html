@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="./js/voters-script.js"></script>
+
+    <script>
+		$( document ).ready(function() {
+			console.log("document loaded");
+			setButtonListeners();
+            getVoters();
+            // updateHistorian();
+		});
+	</script>
+
+  </head>
+
+  <body>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Election Commision</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="./index.html">Candidates</a></li>
+              <li class="active"><a href="#">Voters</a></li>
+            </ul>
+          </div>
+      </nav>
+
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                  <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#newVoterModal">New Voter +</button>
+                  <!-- Modal -->
+                  <div id="newVoterModal" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">New Voter</h4>
+                              </div>
+                              <div class="modal-body">
+                                  <form action="API CALL TO ADD VOTER">
+                                      <div class="form-group">
+                                          <label for="firstName">VoterId:</label>
+                                          <input type="text" class="form-control" id="voterFirstName">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="surname">Last Name:</label>
+                                          <input type="text" class="form-control" id="voterLastName">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="address">Address:</label>
+                                          <input type="text" class="form-control" id="voterAddress">
+                                      </div>
+                                  </form>
+                              </div>
+                              <div class="modal-footer">
+                                  <button id="voterSubmitButton" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-1"></div>
+          </div>
+          <div class="row">
+              <div class="col-sm-1"></div>
+              <div id="voterResponse" class="col-sm-10">
+                  <br>
+
+              </div>
+              <div class="col-sm-1"></div>
+          </div>
+          <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                  <input type="text" id="voterId">
+                  <button onclick="deleteVoter()">delete</button>
+              </div>
+              <div class="col-sm-1"></div>
+          </div>
+          <!-- <div class="row">
+              <br>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                  <div id="historian" class="well" style="height:300px;max-height:300px;overflow-y:scroll;max-width=100%;word-wrap: break-word">
+                  </div>
+              </div>
+              <div class="col-sm-1"></div>
+          </div> -->
+
+      </div>
+  </body>
+
+</html>

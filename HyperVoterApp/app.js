@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 const {FileSystemWallet, Gateway} = require('fabric-network');
 const fs = require('fs');
 
-const ccpPath = path.resolve(__dirname, '..', '..', 'basic-network', 'connection.json');
+const ccpPath = path.resolve(__dirname, '..', 'basic-network', 'connection.json');
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
 const ccp = JSON.parse(ccpJSON);
 
@@ -37,7 +37,7 @@ app.get('/EC-dashboard/ec-registration.html', function(request, response) {
 	response.sendFile(path.join(__dirname + '/public/EC-dashboard/ec-registration.html'));
 });
 
-app.post('EC-reg', function(request, response) {
+app.post('EC-dashboard/EC-reg', function(request, response) {
     var username = request.body.username;
     var password = request.body.password;
     if (username && password) {
@@ -54,10 +54,11 @@ app.post('EC-reg', function(request, response) {
     } else {
         response.send('Please enter Username and Password!');
     }
+    console.log("Credentials verified, Registering EC account!");
 
     if (request.session.loggedin) {
         async function registerEC() {
-            EC_ID = request.session.username;
+            let EC_ID = request.session.username;
             try{
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -101,10 +102,11 @@ app.post('EC-reg', function(request, response) {
 
             } catch (error) {
                 console.error(`Failed to register EC: ${error}`);
-                process.exit(1);
                 response.end();
+                process.exit(1);    
             }
         }
+        registerEC();
     }
     response.redirect('/EC-dashboard/ec-dashboard.html');
 });
