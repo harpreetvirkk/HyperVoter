@@ -175,7 +175,7 @@ app.post('/EC-dashboard/EC-addNewVoter', function(request, response) {
             from: 'ec.hypervoter@gmail.com',
             to: voter_email,
             subject: 'Voter Details for HyperVoter Elections',
-            text: 'Hello \n' + 'Voter ID: ' + voter_id + '\n Voter PIN: ' + voter_pin + '\n',
+            text: 'Hello Voter,\nYour Voting details for the upcoming HyperVoter elections are as follows: \n\n' + 'Voter ID: ' + voter_id + '\nVoter PIN: ' + voter_pin + '\n',
           };
           
           transporter.sendMail(mailOptions, function(error, info){
@@ -389,12 +389,61 @@ app.get('/voter-dashboard/voter-dashboard.html', function(request, response) {
     response.sendFile(path.join(__dirname + '/public/voter-dashboard/voter-dashboard.html'));
 });
 
+app.post('/voting', function(request, response){
+    var username = request.session.username;
+    var password = request.body.password;
+    var candidate = request.body.candidate;
+    let userId = username;
 
+    if(request.session.loggedin){
+        if(request.session.username != 1){
+            async function sendVoteObj(){
+                try{
+                    const walletPath = path.join(process.cwd(), 'wallet');
+                    const wallet = new FileSystemWallet(walletPath);
+                    console.log(`Wallet path: ${walletPath}`);
 
+                    // Check to see if we've already enrolled the user.
+                    const userExists = await wallet.exists(userId);
+                    if (!userExists) {
+                        console.log(`An identity for the EC ${userId} does not exist in the wallet`);
+                        return;
+                    }
 
+                    // Create a new gateway for connecting to our peer node.
+                    const gateway = new Gateway();
+                    await gateway.connect(ccp, {wallet, identity: userId, discovery: {enabled: false}});
 
+                    // Get the network (channel) our contract is deployed to.
+                    const network = await gateway.getNetwork('mychannel');
 
-var server = app.listen(6197, function () {
+                    // Get the contract from the network.
+                    const contract = network.getContract('hypervoter');
+
+                    sendTo = candidate;
+
+                    await contract.submitTransaction('sendVoteObj', userId, sendTo);
+                    console.log("Vote Casted successfully!\n");
+
+                    await gateway.disconnect();
+
+                } catch (error){
+                    console.error(`Failed to submit transaction: ${error}`);
+                    process.exit(1);
+                }
+            }
+            sendVoteObj();
+        }
+    }
+    response.redirect('/'); 
+    //response.redirect('/thankyou'); 
+});
+
+// app.get('/thankyou', function(request, response) {
+//     response.sendFile(path.join(__dirname + '/public/thankyou_forvoting.html'));
+// });
+
+var server = app.listen(4000, function () {
   var host = 'localhost'
   var port = server.address().port
   
