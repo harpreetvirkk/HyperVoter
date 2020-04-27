@@ -15,15 +15,16 @@
     "engineStrict": true,
     "author": "Hyperledger HyperVoter",
     "dependencies": {
-        "fabric-ca-client": "~1.4.0",
-        "fabric-network": "~1.4.0",
         "cookie-parser": "~1.4.4",
         "debug": "~2.6.9",
         "express": "~4.16.1",
         "express-session": "^1.17.1",
+        "fabric-ca-client": "~1.4.0",
+        "fabric-network": "~1.4.0",
         "http-errors": "~1.6.3",
         "jade": "~1.11.0",
-        "morgan": "~1.9.1"
+        "morgan": "~1.9.1",
+        "nodemailer": "^6.4.6"
     },
     "devDependencies": {
         "chai": "^4.2.0",

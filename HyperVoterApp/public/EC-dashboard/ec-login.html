@@ -20,14 +20,18 @@
           </div>
       </nav>
 
-        <div class="container-fluid">
-            <h4 class="modal-title">Welcome to Election Commision Dashboard!</h4>
+      <div class="container-fluid">
+          <h1>EC LogIn Form</h1>
+          <form action="EC-lgin" method="POST">
+            <input type="text" name = username placeholder="Election Commision ID" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit">
+          </form>
+          <!-- <div class="list-group">
             <br></br>
-            <h4 class="modal-title">What would you like to do!</h4>
-            <br></br>
-            <div class="list-group">
-                <a href="../EC-dashboard/ec-dashboard-add-voter.html" target="_blank" class="list-group-item">Add New Voters!</a> <!-- Add voters to voters list, allot them pins, create vote objs for them, send them emails. -->
-                <a href="../EC-dashboard/ec-dashboard-add-candidate.html" target="_blank" class="list-group-item">Add New Candidates!</a> 
+            <a href="../EC-dashboard/index.html" target="_blank" class="list-group-item">After registration, click here to go back!</a>
+          </div> -->
         </div>
+      </div>
   </body>
 </html>

@@ -15,16 +15,19 @@
       <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">Election Commision</a>
+              <a class="navbar-brand" href="#">Voter Dashboard</a>
             </div>
           </div>
       </nav>
 
       <div class="container-fluid">
-            <h4 class="modal-title">Welcome Election Commision! Have you already been registered as EC user?</h4>
-            <div class="list-group">
-                <a href="../EC-dashboard/ec-login.html" target="_blank" class="list-group-item">Yes, take me to EC LogIn Page!</a>
-                <a href="../EC-dashboard/ec-registration.html" target="_blank" class="list-group-item">No, take me to EC registration!</a>
+          <h1>Voter Registration Form</h1>
+          <form action="voter-reg" method="POST">
+            <input type="text" name = username placeholder="Voter ID" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit">
+          </form>
+        </div>
       </div>
   </body>
 </html>
