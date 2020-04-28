@@ -5,6 +5,7 @@ var path = require('path');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
+var crypto = require('crypto');
 
 const {FileSystemWallet, Gateway, X509WalletMixin} = require('fabric-network');
 const fs = require('fs');
@@ -204,16 +205,16 @@ app.post('/EC-dashboard/EC-addNewVoter', function(request, response) {
     // var voter_pin = request.body.newVoterPIN;
     var voter_email = request.body.newVoterEmail;
     curr_voter_id = curr_voter_id + 1;
-    var voter_id = curr_voter_id;
+    var voter_id = curr_voter_id.toString();
     var voter_pin = random_pin(111, 999);
-    var voter_pin_hashed = crypto.createHash('sha256').update(voter_pin).digest('base64');
+    // var voter_pin_hashed = crypto.createHash('sha256').update(voter_pin.toString()).digest('base64');
 
     //  START - Reading Voters List and Writing to it
     let rawdata_voters = fs.readFileSync('voters.json');
     let voters_list = JSON.parse(rawdata_voters);
     var new_voter_json = {
         "voterId" : voter_id,
-        "pin" : voter_pin_hashed
+        "pin" : voter_pin
     };
     voters_list.push(new_voter_json);
     let new_voters_list = JSON.stringify(voters_list);
@@ -284,8 +285,8 @@ app.post('/EC-dashboard/EC-addNewVoter', function(request, response) {
 
                 } catch (error) {
                     console.log(`Failed to submit transaction: ${error}`);
-                    response.redirect('/EC-dashboard/ec-dashboard.html');
-                    // process.exit(1);
+                    //response.redirect('/EC-dashboard/ec-dashboard.html');
+                    process.exit(1);
                 }
             }
             createVoteObj();
@@ -343,11 +344,11 @@ app.post('/voter-dashboard/voter-lgin', function(request, response) {
     let flag = 0;
 
     if (username && password) {
-        var voter_pin_hashed = crypto.createHash('sha256').update(password).digest('base64');
+        // var voter_pin_hashed = crypto.createHash('sha256').update(password.toString()).digest('base64');
         for (let i = 0; i<voters_list.length; i++){
             if (voters_list[i].voterId == username){
                 flag = 1;
-                if (voters_list[i].pin != voter_pin_hashed){
+                if (voters_list[i].pin != voter_pin){
                     console.log("Incorrect PIN");
                     response.redirect('/voter-dashboard/voter-login.html');
                     break;
@@ -379,11 +380,11 @@ app.post('/voter-dashboard/voter-reg', function(request, response){
     let voters_list = JSON.parse(rawdata_voters);
 
     if (username && password) {
-        var voter_pin_hashed = crypto.createHash('sha256').update(password).digest('base64');
+        // var voter_pin_hashed = crypto.createHash('sha256').update(password.toString()).digest('base64');
         for (let i = 0; i<voters_list.length; i++){
             if (voters_list[i].voterId == username){
                 flag = 1;
-                if (voters_list[i].pin != voter_pin_hashed){
+                if (voters_list[i].pin != voter_pin){
                     console.log("Incorrect PIN");
                     response.redirect('/voter-dashboard/voter-registration.html');
                     break;
@@ -525,7 +526,7 @@ app.get('/public-bulletin/results.html', function(request, response) {
 
 main();
 
-var server = app.listen(4000, function () {
+var server = app.listen(4001, function () {
   var host = 'localhost'
   var port = server.address().port
   
