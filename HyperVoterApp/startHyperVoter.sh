@@ -13,23 +13,23 @@ CC_RUNTIME_LANGUAGE=node # chaincode runtime language is node.js
 CC_SRC_PATH=/opt/gopath/src/github.com/hypervoter/javascript
 
 # clean the keystore
-console.log("====================Removing the Keystore====================");
+# console.log("====================Removing the Keystore====================");
 rm -rf ./hfc-key-store
 
-console.log("====================Launching the Network====================");
+# console.log("====================Launching the Network====================");
 # launch network; create channel and join peer to channel
 cd ../basic-network
 ./start.sh
 
 # Now launch the CLI container in order to install, instantiate chaincode
 # and submit initLedger txn
-console.log("==================Launching the CLI container==================");
+# console.log("==================Launching the CLI container==================");
 docker-compose -f ./docker-compose.yml up -d cli
 
 docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode install -n hypervoter -v 1.0 -p "$CC_SRC_PATH" -l "$CC_RUNTIME_LANGUAGE"
 docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n hypervoter -l "$CC_RUNTIME_LANGUAGE" -v 1.0 -c '{"Args":[]}' -P "OR ('Org1MSP.member','Org2MSP.member')"
 sleep 10
 docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n hypervoter -c '{"function":"initLedger","Args":[]}'
-console.log("=====================run enrollAdmin.js now=====================");
+# console.log("=====================run enrollAdmin.js now=====================");
 # cd /home/r/PycharmProjects/fabchat_flask_server
 # node /home/r/fabric-samples/fabchat/javascript/enrollAdmin.js
