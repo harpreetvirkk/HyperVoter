@@ -14,9 +14,9 @@ const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
 const ccp = JSON.parse(ccpJSON);
 
 // date time
-const date = require('date-and-time');
-let votestart = false;
-let endTime = new Date();
+// const date = require('date-and-time');
+// let votestart = false;
+// let endTime = new Date();
 
 var app = express();
 app.use(session({
