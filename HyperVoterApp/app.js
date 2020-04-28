@@ -13,6 +13,11 @@ const ccpPath = path.resolve(__dirname, '..', 'basic-network', 'connection.json'
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
 const ccp = JSON.parse(ccpJSON);
 
+// date time
+const date = require('date-and-time');
+let votestart = false;
+let endTime = new Date();
+
 var app = express();
 app.use(session({
 	secret: 'secret',
