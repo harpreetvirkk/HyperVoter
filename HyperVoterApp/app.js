@@ -84,7 +84,7 @@ app.post('/EC-dashboard/EC-reg', function(request, response) {
 
     if (request.session.loggedin) {
         async function registerEC() {
-            let EC_ID = request.session.username;
+            let EC_ID = '1';
             try{
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -192,7 +192,7 @@ app.post('/EC-dashboard/EC-addNewVoter', function(request, response) {
     if (request.session.loggedin){
         if (request.session.username == 1) {
             async function createVoteObj(){
-                userId = 1;
+                let userId = '1';
                 try{
                     // Create a new file system based wallet for managing identities.
                     const walletPath = path.join(process.cwd(), 'wallet');
@@ -216,7 +216,7 @@ app.post('/EC-dashboard/EC-addNewVoter', function(request, response) {
                     // Get the contract from the network.
                     const contract = network.getContract('hypervoter');
 
-                    sendTo = voter_id;
+                    let sendTo = voter_id;
 
                     await contract.submitTransaction('createVoteObj', sendTo);
                     console.log("Added Voter and created VOTE Obj successfully!\n");
@@ -309,6 +309,9 @@ app.post('/voter-dashboard/voter-reg', function(request, response){
 
     let flag = 0;
 
+    let rawdata_voters = fs.readFileSync('voters.json');
+    let voters_list = JSON.parse(rawdata_voters);
+
     if (username && password) {
         for (let i = 0; i<voters_list.length; i++){
             if (voters_list[i].voterId == username){
@@ -389,7 +392,7 @@ app.get('/voter-dashboard/voter-dashboard.html', function(request, response) {
     response.sendFile(path.join(__dirname + '/public/voter-dashboard/voter-dashboard.html'));
 });
 
-app.post('/voting', function(request, response){
+app.post('/voter-dashboard/voting', function(request, response){
     var username = request.session.username;
     var password = request.body.password;
     var candidate = request.body.candidate;
@@ -420,7 +423,7 @@ app.post('/voting', function(request, response){
                     // Get the contract from the network.
                     const contract = network.getContract('hypervoter');
 
-                    sendTo = candidate;
+                    let sendTo = candidate;
 
                     await contract.submitTransaction('sendVoteObj', userId, sendTo);
                     console.log("Vote Casted successfully!\n");
