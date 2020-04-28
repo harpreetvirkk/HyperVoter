@@ -435,6 +435,7 @@ app.post('/voting', function(request, response){
             sendVoteObj();
         }
     }
+    request.session.loggedin = false;
     response.redirect('/'); 
     //response.redirect('/thankyou'); 
 });

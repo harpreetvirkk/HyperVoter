@@ -12,7 +12,7 @@
 
   </head>
 
-  <body>
+  <body onload="load()">
       <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -24,10 +24,16 @@
         <div class="container-fluid">
             <h4 class="modal-title">Welcome to Voter Dashboard!</h4>
             <!-- View Candidates -->
+            <div id="data"></div>
             <br></br>
             <h4 class="modal-title">Who would you like to vote!</h4>
             <br></br>
-            <div class="list-group">
+            <form action="voting" method="POST">
+                <input type="text" name = username placeholder="Voter ID" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="candidate" placeholder="Candidate ID" required>
+                <input type="submit">
+              </form>
              <!-- Candidate Options -->
         </div>
   </body>
