@@ -15,6 +15,8 @@ let voterId, ownerId;
 let hasVoted;
 
 //date and time
+
+// does this module exist in node_modules?
 const date = require('date-and-time');
 let votestart = false;
 let endTime = new Date();
@@ -104,6 +106,7 @@ class HyperVoter extends Contract {
             console.log('Sorry, voting has not started. Pleas come back later.');
         } 
 
+        // is this comparison valid?
         if (Indian>endTime){
             console.log('Sorry, voting has ended.');
 
