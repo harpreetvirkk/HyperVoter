@@ -33,6 +33,8 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
+let currVoteId = -1;
+
 //Enroll Admin if Not already installed
 async function main() {
     try{
@@ -233,6 +235,7 @@ app.post('/EC-dashboard/EC-addNewVoter', function(request, response) {
     let new_voters_list = JSON.stringify(voters_list);
     fs.writeFileSync('voters.json', new_voters_list);
     //  END - Reading Voters List and Writing to it
+    currVoteId +=1;
 
     if (voter_email) {
         var transporter = nodemailer.createTransport({
@@ -247,7 +250,7 @@ app.post('/EC-dashboard/EC-addNewVoter', function(request, response) {
             from: 'ec.hypervoter@gmail.com',
             to: voter_email,
             subject: 'Voter Details for HyperVoter Elections',
-            text: 'Hello Voter,\nYour Voting details for the upcoming HyperVoter elections are as follows: \n\n' + 'Voter ID: ' + voter_id + '\nVoter PIN: ' + voter_pin + '\n',
+            text: 'Hello Voter,\nYour Voting details for the upcoming HyperVoter elections are as follows: \n\n' + 'Voter ID: ' + voter_id + '\nVoter PIN: ' + voter_pin + '\nVote ID: ' + currVoteId + '\n',
           };
           
           transporter.sendMail(mailOptions, function(error, info){

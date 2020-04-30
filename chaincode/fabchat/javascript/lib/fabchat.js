@@ -202,7 +202,7 @@ class FabChat extends Contract {
         return JSON.stringify(vote);
     }
 
-    async queryAllVote(ctx, voteId){
+    async queryAllVote(ctx){
         console.info('============= START : queryAllVote ===========');
         const startKey = '0';
         const endKey = '99999';
@@ -221,7 +221,9 @@ class FabChat extends Contract {
                 console.log(err);
                 vote = res.value.value.toString('utf8');
                 }
-                allResults.push({Key, vote});
+                if (vote.hasVoted == true){
+                    allResults.push({Key, vote});
+                }
             }
 
             if (res.done){
