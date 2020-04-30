@@ -1,7 +1,8 @@
 {
     "name": "fabchat",
     "version": "1.0.0",
-    "description": "FabChat application implemented in JavaScript",
+    "description": "FabChat contract implemented in JavaScript",
+    "main": "index.js",
     "engines": {
         "node": ">=8",
         "npm": ">=5"
@@ -9,26 +10,23 @@
     "scripts": {
         "lint": "eslint .",
         "pretest": "npm run lint",
-        "test": "nyc mocha --recursive"
+        "test": "nyc mocha --recursive",
+        "start": "fabric-chaincode-node start"
     },
     "engineStrict": true,
     "author": "Hyperledger",
     "license": "Apache-2.0",
     "dependencies": {
-        "date-and-time": "^0.13.1",
-        "express": "^4.17.1",
-        "express-session": "^1.17.1",
-        "fabric-ca-client": "~1.4.0",
-        "fabric-network": "~1.4.0",
-        "nodemailer": "^6.4.6"
+        "fabric-contract-api": "~1.4.0",
+        "fabric-shim": "~1.4.0"
     },
     "devDependencies": {
-        "chai": "^4.2.0",
-        "eslint": "^5.9.0",
+        "chai": "^4.1.2",
+        "eslint": "^4.19.1",
         "mocha": "^5.2.0",
-        "nyc": "^13.1.0",
-        "sinon": "^7.1.1",
-        "sinon-chai": "^3.3.0"
+        "nyc": "^12.0.2",
+        "sinon": "^6.0.0",
+        "sinon-chai": "^3.2.0"
     },
     "nyc": {
         "exclude": [
