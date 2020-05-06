@@ -1,0 +1,55 @@
+<!-- Read  -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>EC Dashboard</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body onload="load()">
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Voter Dashboard</a>
+            </div>
+          </div>
+      </nav>
+
+        <div class="container-fluid">
+            <h4 class="modal-title">Welcome to Voter Dashboard!</h4>
+            <!-- View Candidates -->
+            <h4>Click Submit to View Candidates!</h4>
+            <form action="get-can" method="POST">
+              <input type="submit">
+              <p><%- _ %></p>
+            </form>
+            <div id="data"></div>
+            <br></br>
+            <h4 class="modal-title">Who would you like to vote!</h4>
+            <br></br>
+            <form action="voting" method="POST">
+                <input type="text" name = username placeholder="Voter ID" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="candidate" placeholder="Candidate ID" required>
+                <input type="submit">
+            </form>
+             <!-- Candidate Options -->
+             <div>
+              <br></br>
+              <br></br>
+              <br></br>
+                          
+              <h4 class="modal-title">Click here to Log Out!</h4>
+              <form action = 'home-page', method='POST'>
+                  <input type="submit">
+              </form>
+          </div>
+        </div>
+  </body>
+</html>
