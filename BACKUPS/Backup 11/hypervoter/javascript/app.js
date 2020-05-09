@@ -322,7 +322,7 @@ app.post('/EC-dashboard/EC-addNewVoter', function(request, response) {
                     const network = await gateway.getNetwork('mychannel');
 
                     // Get the contract from the network.
-                    const contract = network.getContract('hypervoter');
+                    const contract = network.getContract('fabchat');
 
                     let sendTo = voter_id;
 
@@ -387,7 +387,7 @@ app.post('/EC-dashboard/set-time', function(request, response) {
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
 
             // let endTimeString = endTime.toString();
 
@@ -646,7 +646,7 @@ app.post('/voter-dashboard/voting', function(request, response){
                     const network = await gateway.getNetwork('mychannel');
 
                     // Get the contract from the network.
-                    const contract = network.getContract('hypervoter');
+                    const contract = network.getContract('fabchat');
 
                     let sendTo = candidate;
                     // const curr_time = new Date();
@@ -780,7 +780,7 @@ app.post('/public-bulletin/get-q-one', function(request, response){
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
 
             let query_results = await contract.evaluateTransaction('queryVote', vid);
 
@@ -839,7 +839,7 @@ app.post('/public-bulletin/public-bulletin/get-q-one', function(request, respons
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
             let que_res_string;
             let query_results = await contract.evaluateTransaction('queryVote', vid);
             
@@ -890,7 +890,7 @@ app.post('/public-bulletin/get-q-all', function(request, response){
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
 
             let query_results = await contract.evaluateTransaction('queryAllVote');
 
@@ -952,7 +952,7 @@ app.post('/public-bulletin/public-bulletin/get-q-all', function(request, respons
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
 
             let query_results = await contract.evaluateTransaction('queryAllVote');
 
@@ -1015,7 +1015,7 @@ app.post('/public-bulletin/get-turnout', function(request, response){
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
 
             let turnout_results = await contract.evaluateTransaction('voterTurnout');
 
@@ -1071,7 +1071,7 @@ app.post('/public-bulletin/public-bulletin/get-turnout', function(request, respo
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
 
             let turnout_results = await contract.evaluateTransaction('voterTurnout');
 
@@ -1128,7 +1128,7 @@ app.post('/public-bulletin/get-result', function(request, response){
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
 
             let results = await contract.submitTransaction('getResults');
             results = JSON.parse(results.toString('utf8'));
@@ -1193,7 +1193,7 @@ app.post('/public-bulletin/public-bulletin/get-result', function(request, respon
             const network = await gateway.getNetwork('mychannel');
 
             // Get the contract from the network.
-            const contract = network.getContract('hypervoter');
+            const contract = network.getContract('fabchat');
 
             let results = await contract.submitTransaction('getResults');
             results = JSON.parse(results.toString('utf8'));
