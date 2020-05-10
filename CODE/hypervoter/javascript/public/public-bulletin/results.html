@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>Public Bulletin</title>
+    <script src="ejs.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  </head>
+  <style>
+    body {
+    background-color: lightblue;
+    }
+    .button {
+  background-color: lightseagreen; /* Green */
+  border: none;
+  color: white;
+  padding: 3px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+}
+.button:hover {
+  background-color: lavender; /* Green */
+  color: white;
+}
+  </style>
+  <body>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Public Bulletin</a>
+            </div>
+          </div>
+      </nav>
+
+      <div class="container-fluid">
+          <h3 style="text-align: center;">Election Results</h3>
+
+          <!-- <button onclick="myFunction()">Try it</button> -->
+
+          <form action="get-result" method="POST" style="text-align: center;margin-top: 30px;">
+            <input type="submit" class="button" value = "Load Results"> 
+            <br></br>
+            <p><%- _ %></p>
+          </form>
+          <div>
+            <br></br>
+            <br></br>
+            <br></br>
+                        
+            <form action = 'home-page', method='POST' style="margin-top: 5px;">
+              <input type="submit" class="button" value="Go Back">
+          </form>
+        </div>
+        </div>
+        
+      </div>
+  </body>
+</html>

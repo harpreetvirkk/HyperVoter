@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>EC Dashboard</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <style>
+    body {
+    background-color: lightblue;
+    }
+    .button {
+    background-color: lightseagreen; /* Green */
+    border: none;
+    color: white;
+    padding:3px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+  </style>
+
+  <body>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Election Commision</a>
+            </div>
+          </div>
+      </nav>
+
+      <div class="container-fluid">
+          <h3 style="margin-bottom: 30px;text-align: center;">Set Election Time:</h3>
+          <form action="set-time" method="POST" style="text-align: center;">
+            <input type="text" name="duration_d" placeholder="Duration (Days)" required><br></br>
+            <input type="text" name="duration_h" placeholder="Duration (Hours)" required><br></br>
+            <input type="text" name="duration_m" placeholder="Duration (Mins)" required><br></br>
+            <input class="button" type="submit" style="padding: 5px 35px;" value="Set Time">
+            <p><%- _ %></p>
+          </form>
+          <!-- <div class="list-group">
+            <br></br>
+            <a href="../EC-dashboard/index.html" target="_self" class="list-group-item">After registration, click here to go back!</a>
+          </div> -->
+          <div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <form action = 'ec-dash-page', method='POST'>
+                <input class="button" type="submit" value="Back to Dashboard">
+            </form>
+        </div>
+        <div>
+            <!-- <br></br>                     -->
+            <form action = 'home-page', method='POST' style="margin-top: 5px;">
+                <input class = "button" type="submit" value="Log Out">
+            </form>
+        </div>
+        </div>
+        
+      </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>EC Dashboard</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <style>
+    body {
+    background-color: lightblue;
+    }
+    .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 50%;
+  }
+  .button {
+    background-color: lightseagreen; /* Green */
+    border: none;
+    color: white;
+    padding:3px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.button:hover {
+  background-color: lavender; /* Green */
+  color: white;
+}
+  </style>
+
+  <body>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Election Commision</a>
+            </div>
+          </div>
+      </nav>
+
+        <div class="container-fluid">
+            <h3 class="modal-title">Welcome to Election Commision Dashboard!</h3>
+            <h4 class="modal-title">What would you like to do!</h4>
+            <br></br>
+            <div class="list-group">
+                <a href="../EC-dashboard/ec-dashboard-add-voter.html" target="_self" class="list-group-item">Add New Voters!</a> <!-- Add voters to voters list, allot them pins, create vote objs for them, send them emails. -->
+                <a href="../EC-dashboard/ec-dashboard-add-candidate.html" target="_self" class="list-group-item">Add New Candidates!</a> 
+                <a href="../EC-dashboard/ec-set-time.html" target="_self" class="list-group-item">Set Voting Timeline!</a>
+
+        </div>
+        <div>
+          <br></br>
+          <br></br>
+          <br></br>
+                      
+          <!-- <h4 class="modal-title">Click here to Log Out!</h4> -->
+          <form action = 'home-page', method='POST'>
+              <input class="button" type="submit" value = "Log Out">
+          </form>
+      </div>
+  </body>
+</html>

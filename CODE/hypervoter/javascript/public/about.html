@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>HyperVoter - About</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  </head>
+  <style>
+    body {
+    background-color: lightblue;
+    }
+    
+  </style>
+
+  <body>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">HyperVoter Index</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="./index.html">Dashboard Links</a></li>
+              <li class="active"><a href="#">About</a></li>
+            </ul>
+          </div>
+      </nav>
+
+      <div class="container-fluid">
+          <p>HyperVoter is a distributed E-Voting application implemented on Hyperledger Fabric. It aims to do the following:</p>
+
+          <ul>
+            <li>The identity of every voter is verified and remains anonymous throughout the process.</li>
+            <li>Every voter should be eligible to vote before casting their vote, and should be pre-authorised to do so.</li>
+            <li>No one should be able to cast their vote more than once in the same election (double spend problem).</li>
+            <li>Eliminating a third-party responsible for counting votes.</li>
+            <li>Votes should not be modifiable once cast.</li>
+            <li>Election results should be publicly visible to the entire network and vote transactions should be openly available for verification to ensure transparency (Voter’s identity will still be anonymous)</li>
+          </ul>
+
+              <br><br>
+          </p>
+      </div>
+  </body>
+
+</html>

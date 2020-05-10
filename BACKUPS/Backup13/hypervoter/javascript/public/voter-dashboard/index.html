@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>EC Dashboard</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <style>
+    body {
+    background-color: lightblue;
+    }
+    .button {
+  background-color: lightseagreen; /* Green */
+  border: none;
+  color: white;
+  padding: 3px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+}
+.button:hover {
+  background-color: lavender; /* Green */
+  color: white;
+}
+  </style>
+
+  <body>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Voters Dashboard</a>
+            </div>
+          </div>
+      </nav>
+
+      <div class="container-fluid">
+            <h4 class="modal-title">Welcome Voter! Have you already been registered as Voter?</h4>
+      <br></br>
+            <div class="list-group">
+                <a href="../voter-dashboard/voter-login.html" target="_self" class="list-group-item">Yes, take me to Voter LogIn Page!</a>
+                <a href="../voter-dashboard/voter-registration.html" target="_self" class="list-group-item">No, take me to Voter registration!</a>
+      </div>
+      <form action = 'home-page', method='POST' style="margin-top: 5px;">
+        <input type="submit" class="button" value="Go Back">
+    </form>
+      
+  </body>
+</html>
