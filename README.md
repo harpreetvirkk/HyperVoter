@@ -79,45 +79,8 @@ $  cd fabric-samples/hypervoter/javascript
 ```
 $  npm install
 ```
-3. Enroll admin (stores CA admin credentials in wallet dir) 
+3. Run Application
 ```
-$  node enrollAdmin.js
+$  node app.js
 ```
-4. Register and enroll EC:
-```
-$  node registerEC.js <EC_PIN>
-```
-Example:
-```
-$  node registerEC.js 54321
-```
-Default EC_PIN is 54321. EC_PIN is preset in registerEC.js, and can be set by the EC before the elections start. EC user can only create VoteObjects.
-
-5. Register and enroll three voters:
-```
-$  node registerVoter.js <voterId> <voterPin>
-```
-Example:
-```
-$  node registerVoter.js 101 001
-$  node registerVoter.js 102 002
-$  node registerVoter.js 103 003
-```
-VoterId's and voterPin's are preset in voters.json file, and are set by the EC after they verify individual voters before the elections start. Voters can only send VoteObjects, not create them.
-
-6. Creating a new VoteObject for a voter, using EC wallet: 
-```
-$  node invoke.js createVoteObj 1 <EC_PIN> <sendTo = new voter's voterId>  
-```
-7. Sending a VoteObject to preffered candidate for voting, using voter wallet:
-```
-$  node invoke.js sendVoteObj <voterId> <voterPin> <sendTo = candidateId> 
-```
-8. Query all votes using a voters wallet:
-```
-$  node query.js -1 <voterId>
-```
-9. Query a specific vote using a voters wallet:
-```
-$  node query.js <voteId> <voterId>
-```
+4. To view the frontend, go to your browser and goto http://localhost:5000
