@@ -83,4 +83,4 @@ $  npm install
 ```
 $  node app.js
 ```
-4. To view the frontend, go to your browser and goto http://localhost:5000
+4. To view the frontend, go to your browser and lauch http://localhost:5000
