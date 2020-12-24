@@ -15,7 +15,7 @@
     "author": "Hyperledger",
     "license": "Apache-2.0",
     "dependencies": {
-        "date-and-time": "^0.13.1",
+        "date-and-time": "^0.14.2",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
         "fabric-ca-client": "~1.4.0",
