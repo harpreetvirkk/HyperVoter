@@ -1,6 +1,6 @@
 # HyperVoter E-Voting Platform
 
-#### Contributers: Harpreet Virk, [Vir Jhangiani](https://github.com/virjhangiani), Varsheel Deliwala
+#### Contributers: [Harpreet Virk](https://github.com/harpreetvirkk), [Vir Jhangiani](https://github.com/virjhangiani), Varsheel Deliwala
 
 ## Introduction:
 
