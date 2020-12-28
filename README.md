@@ -49,7 +49,7 @@ An asset (key, value) is a (voteID, {ownerId, hasVoted}) pair, with a unique vot
 ### Prerequisites:
 
 1. [HyperLedger Fabric v1.4.6](https://www.hyperledger.org/projects/fabric "HyperLedger Fabric Homepage")
-2. Download this repository and merge its contents with fabric-samples directory.
+2. Download this repository, and merge with the fabric-samples directory.
 
 ### Network Setup:
 
